@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Black and white.sln"
+    "dotnet.defaultSolution": "Black-and-white.sln"
 }
