@@ -1030,3 +1030,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897308631}
   m_CullTransparentMesh: 1
+--- !u!1001 &139013897517746219
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767165, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: musicSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: sfxSounds.Array.data[0].name
+      value: Victory
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: sfxSounds.Array.data[1].name
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: musicSounds.Array.data[0].name
+      value: GameLoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: sfxSounds.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4dbfbd1a56081db4ca174255a4d56b1f, type: 3}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: sfxSounds.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 35ce408210dfa9843ba14da86f8efb4e, type: 3}
+    - target: {fileID: 139013897144767166, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: musicSounds.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5014cb6bee765148896a2729ae8f91f, type: 3}
+    - target: {fileID: 139013897144767167, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e93d2e3403d0f94cb940fd7a253a4eb, type: 3}
