@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
+{   private int coinCount = 0;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float gravity = -9.81f;
@@ -66,7 +67,29 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x,mirroredRotation.y,transform.rotation.eulerAngles.z));
         }
 
-
+        
 
     }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    public void CollectCoin(CoinRotation coinRotation)
+    {
+        coinCount += coinRotation.value;
+        Debug.Log($"Monedas recogidas: {coinCount}");
+    }
+
+    
+
+
 }

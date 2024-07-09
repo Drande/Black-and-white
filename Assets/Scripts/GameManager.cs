@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{
+{   public int totalCoins = 0;
     public static GameManager Instance;
 
     // Start is called before the first frame update
@@ -29,4 +29,16 @@ public class GameManager : MonoBehaviour
     public void RestartGame() {
         SceneManager.LoadScene(1);
     }
+
+    public void AddCoin(int value)
+    {
+        totalCoins += value;
+        Debug.Log($"Total de monedas : {totalCoins}");
+
+    }
+
+
+
+
+
 }
