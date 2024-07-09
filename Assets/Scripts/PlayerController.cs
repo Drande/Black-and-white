@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,25 +29,31 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = -2f;
         }
-
+        // movimiento horizontal (espejo)
         float x = Input.GetAxis("Horizontal");
+        Vector3 horizontalMove = transform.right * x;
+        //invertir el movimiento horizontal si es el jugador espejo 
+        if (isMainPlayer)
+        {
+            horizontalMove = -horizontalMove;
+        }
+        //movimiento vetical independiente 
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 verticalMove = transform.forward * z;
 
-        // Invertir el moviento si es el jugador espejo 
-
-        if (!isMainPlayer)
-        {
-            move = -move;
-        }
+       // combinar movimientos
+        Vector3 move = horizontalMove + verticalMove;
         controller.Move(move * moveSpeed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        // salto (independiente para cada jugador )
+
+        if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
 
+    
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
@@ -56,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 mirroredRotation = mirroredPlayer.rotation.eulerAngles;
             mirroredRotation.y = -mirroredRotation.y;
-            transform.rotation = Quaternion.Euler(mirroredRotation);
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x,mirroredRotation.y,transform.rotation.eulerAngles.z));
         }
 
 
