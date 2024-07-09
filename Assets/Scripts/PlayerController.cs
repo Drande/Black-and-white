@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-      public float moveSpeed = 5f;
+    public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float gravity = -9.81f;
 
@@ -61,5 +61,5 @@ public class PlayerController : MonoBehaviour
 
 
 
-}
+    }
 }
