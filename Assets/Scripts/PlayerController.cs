@@ -1,95 +1,58 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{   private int coinCount = 0;
-    public float moveSpeed = 5f;
-    public float jumpForce = 5f;
-    public float gravity = -9.81f;
-
-    public bool isMainPlayer = true;
-    public Transform mirroredPlayer;
-
-    private CharacterController controller;
-    private Vector3 velocity;
-    private bool isGrounded;
+{
+    private int coinCount = 0;
+    [SerializeField] private GameObject mirrorPlayer;
+    private Rigidbody playerRb;
+    private Rigidbody mirrorRb;
+    [SerializeField] private float moveSpeed = 2.5f;
+    [SerializeField] private float jumpForce = 8f;
+    [SerializeField] private bool isGrounded = true;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        playerRb = GetComponent<Rigidbody>();
+        mirrorRb = mirrorPlayer.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        isGrounded = controller.isGrounded;
+        // Get input from the user
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-        if (isGrounded && velocity.y < 0)
+        // Create a vector based on input
+        Vector3 movement = new(-moveHorizontal, 0.0f, -moveVertical);
+        // Move the player
+        playerRb.AddForce(movement * moveSpeed);
+        // Move the opposite object with inverted X direction
+        Vector3 oppositeMovement = new(moveHorizontal, 0.0f, -moveVertical);
+        mirrorRb.AddForce(oppositeMovement * moveSpeed);
+
+        // Jump
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            velocity.y = -2f;
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            mirrorRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        // movimiento horizontal (espejo)
-        float x = Input.GetAxis("Horizontal");
-        Vector3 horizontalMove = transform.right * x;
-        //invertir el movimiento horizontal si es el jugador espejo 
-        if (isMainPlayer)
-        {
-            horizontalMove = -horizontalMove;
-        }
-        //movimiento vetical independiente 
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 verticalMove = transform.forward * z;
-
-       // combinar movimientos
-        Vector3 move = horizontalMove + verticalMove;
-        controller.Move(move * moveSpeed * Time.deltaTime);
-
-        // salto (independiente para cada jugador )
-
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-        }
-
-    
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
-
-        // Espejear la rotación
-        if (mirroredPlayer != null)
-        {
-            Vector3 mirroredRotation = mirroredPlayer.rotation.eulerAngles;
-            mirroredRotation.y = -mirroredRotation.y;
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x,mirroredRotation.y,transform.rotation.eulerAngles.z));
-        }
-
-        
-
     }
-    
 
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.CompareTag("Ground")) {
+            isGrounded = true;
+        }
+    }
 
-
-
-
-
-
-
-
-
-
+    private void OnCollisionExit(Collision other) {
+        if(other.gameObject.CompareTag("Ground")) {
+            isGrounded = false;
+        }
+    }
 
     public void CollectCoin(CoinRotation coinRotation)
     {
         coinCount += coinRotation.value;
         Debug.Log($"Monedas recogidas: {coinCount}");
     }
-
-    
-
-
 }
