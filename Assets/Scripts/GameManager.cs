@@ -21,4 +21,12 @@ public class GameManager : MonoBehaviour
     public void StartGame() {
         SceneManager.LoadScene(1);
     }
+    
+    public void BackToMain() {
+        SceneManager.LoadScene(0);
+    }
+    
+    public void RestartGame() {
+        SceneManager.LoadScene(1);
+    }
 }
