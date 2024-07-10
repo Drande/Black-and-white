@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGrounded()
     {
-        // float rayLength = 3f; // Adjust based on your character's size
         if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out var hit, rayLength))
         {
             return true;
@@ -39,9 +38,11 @@ public class PlayerController : MonoBehaviour
 
         // Create a vector based on input
         Vector3 movement = new(-moveHorizontal, 0.0f, -moveVertical);
+
         // Move the player
         playerRb.MovePosition(transform.position + movement * moveSpeed * Time.deltaTime);
-        // Move the opposite object with inverted X direction
+
+        // Activate animations
         playerAnim.SetFloat("Speed_f", Math.Abs(moveHorizontal) + Math.Abs(moveVertical));
 
         // Rotate the player to face the movement direction
@@ -58,22 +59,6 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
-
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.gameObject.CompareTag("Ground"))
-    //     {
-    //         isGrounded = true;
-    //     }
-    // }
-
-    // private void OnCollisionExit(Collision other)
-    // {
-    //     if (other.gameObject.CompareTag("Ground"))
-    //     {
-    //         isGrounded = false;
-    //     }
-    // }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -92,8 +77,5 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.Victory();
         }
-    
-    
-    
     }
 }
