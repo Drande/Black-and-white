@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
     
     public void RestartGame() {
-        totalCoins = 0;
+        Instance.totalCoins = 0;
         SceneManager.LoadScene(1);
     }
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void AddCoin(int value)
     {
-        totalCoins += value;
-        CanvasManager.Instance.SetCoins(totalCoins);
+        Instance.totalCoins += value;
+        CanvasManager.Instance.SetCoins(Instance.totalCoins);
     }
 }
