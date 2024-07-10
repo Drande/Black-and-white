@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         // Jump
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
+            AudioManager.Instance.PlaySFX("Jump");
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             mirrorRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
