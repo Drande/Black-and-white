@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 8284842897196201328}
-  victoryPanel: {fileID: 0}
+  victoryPanel: {fileID: 7565781956076983538}
   coinText: {fileID: 757550205608608281}
 --- !u!1001 &2978953847915964227
 PrefabInstance:
@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2954199303866878007, guid: 54ef49e19f1d9ce49aa20e3ed06e42e6, type: 3}
+      propertyPath: m_text
+      value: Back to title
+      objectReference: {fileID: 0}
     - target: {fileID: 6652509892179687541, guid: 54ef49e19f1d9ce49aa20e3ed06e42e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -378,6 +382,10 @@ PrefabInstance:
     - target: {fileID: 12499845933467374, guid: 80e13f3032f82e74e9da75449e526c4f, type: 3}
       propertyPath: m_Name
       value: Victory Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 12499845933467374, guid: 80e13f3032f82e74e9da75449e526c4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8458397065853205694, guid: 80e13f3032f82e74e9da75449e526c4f, type: 3}
       propertyPath: m_Pivot.x
@@ -468,5 +476,10 @@ PrefabInstance:
 --- !u!224 &2139532257603956386 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8458397065853205694, guid: 80e13f3032f82e74e9da75449e526c4f, type: 3}
+  m_PrefabInstance: {fileID: 7553493226328150556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7565781956076983538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 12499845933467374, guid: 80e13f3032f82e74e9da75449e526c4f, type: 3}
   m_PrefabInstance: {fileID: 7553493226328150556}
   m_PrefabAsset: {fileID: 0}
