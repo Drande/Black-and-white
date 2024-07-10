@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10;
     [SerializeField] private float jumpForce = 7;
     [SerializeField] private bool isGrounded = true;
+    [SerializeField] private int  coinsToWin = 4;
     private readonly float rayLength = 1.05f;
 
     void Start()
@@ -86,5 +87,13 @@ public class PlayerController : MonoBehaviour
     public void CollectCoin(CoinRotation coinRotation)
     {
         GameManager.Instance.AddCoin(coinRotation.value);
+
+        if(GameManager.Instance.totalCoins == coinsToWin)
+        {
+            GameManager.Instance.Victory();
+        }
+    
+    
+    
     }
 }
