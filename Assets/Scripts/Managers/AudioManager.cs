@@ -23,7 +23,23 @@ public class AudioManager : MonoBehaviour
     }
 
     private void Start() {
-        PlayMusic("GameLoop");
+        HandleSceneChange(SceneManager.GetActiveScene());
+        SceneManager.activeSceneChanged += (previous, current) => {
+            if(previous.name != current.name) {
+                HandleSceneChange(current);
+            }
+        };
+    }
+
+    private void HandleSceneChange(Scene scene) {
+        switch(scene.buildIndex) {
+            case 0:
+                PlayMusic("Lobby");
+                break;
+            case 1:
+                PlayMusic("GameLoop");
+                break;
+        }
     }
 
     private IEnumerator MusicPlaylist(Sound[] sounds) {
@@ -34,6 +50,10 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
             yield return new WaitForSeconds(nextSound.audioClip.length);
         }
+    }
+
+    public void Stop() {
+        musicSource.Stop();
     }
     
     public void PlayPlaylist(Sound[] sounds) {

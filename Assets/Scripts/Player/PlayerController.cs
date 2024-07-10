@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int coinCount = 0;
     [SerializeField] private GameObject mirrorPlayer;
     private Rigidbody playerRb;
     private Rigidbody mirrorRb;
     [SerializeField] private float moveSpeed = 2.5f;
-    [SerializeField] private float jumpForce = 8f;
+    [SerializeField] private float jumpForce = 10;
     [SerializeField] private bool isGrounded = true;
 
     void Start()
@@ -33,6 +32,7 @@ public class PlayerController : MonoBehaviour
         // Jump
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
+            AudioManager.Instance.PlaySFX("Jump");
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             mirrorRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
@@ -50,9 +50,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin")) {
+            CollectCoin(other.gameObject.GetComponent<CoinRotation>());
+            other.gameObject.SetActive(false);
+        }
+    }
+
     public void CollectCoin(CoinRotation coinRotation)
     {
-        coinCount += coinRotation.value;
-        Debug.Log($"Monedas recogidas: {coinCount}");
+        GameManager.Instance.AddCoin(coinRotation.value);
     }
 }
