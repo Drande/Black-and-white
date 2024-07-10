@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public void Victory() {
         AudioManager.Instance.Stop();
         AudioManager.Instance.PlaySFX("Victory");
+        CanvasManager.Instance.EnableVictoryScreen(true);
     }
 
     public void GameOver() {

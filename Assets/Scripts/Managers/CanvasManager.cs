@@ -5,6 +5,7 @@ public class CanvasManager : MonoBehaviour
 {
     public static CanvasManager Instance;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject victoryPanel;
     [SerializeField] private TextMeshProUGUI coinText;
 
     void Awake()
@@ -18,6 +19,10 @@ public class CanvasManager : MonoBehaviour
 
     public void EnableGameOverScreen(bool active) {
         gameOverPanel.SetActive(active);
+    }
+
+    public void EnableVictoryScreen(bool active) {
+        victoryPanel.SetActive(active);
     }
 
     public void SetCoins(int value) {
