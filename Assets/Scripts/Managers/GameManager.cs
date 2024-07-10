@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {   public int totalCoins = 0;
+    public int coinsToWin = 4;
     public static GameManager Instance;
 
     void Awake()
