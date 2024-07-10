@@ -6,15 +6,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     private Animator playerAnim;
     [SerializeField] private bool isMirror;
-    [SerializeField] private float moveSpeed = 2.5f;
-    [SerializeField] private float jumpForce = 10;
+    [SerializeField] private float moveSpeed = 10;
+    [SerializeField] private float jumpForce = 7;
     [SerializeField] private bool isGrounded = true;
-    private float rayLength = 1.05f;
+    private readonly float rayLength = 1.05f;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        playerAnim = gameObject.GetComponentInChildren<Animator>();
+        playerAnim = GetComponentInChildren<Animator>();
     }
 
     public bool IsGrounded()
