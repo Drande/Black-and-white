@@ -1391,7 +1391,6 @@ GameObject:
   - component: {fileID: 33759767215735382}
   - component: {fileID: 23573056493336800}
   - component: {fileID: 346973109084245204}
-  - component: {fileID: 1949403493}
   m_Layer: 0
   m_Name: CastleBlueD
   m_TagString: Untagged
@@ -1474,19 +1473,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &346973109084245204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610710955308048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.885874, y: 6.4585137, z: 6.885874}
-  m_Center: {x: -0.00052809715, y: 3.2421973, z: -0.04134035}
---- !u!65 &1949403493
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
